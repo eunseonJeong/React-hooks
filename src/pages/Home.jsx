@@ -1,20 +1,28 @@
 import React, { useState } from 'react'
+import { useInputState } from '../hooks/useInput'
 
-function Home() {
-    const [item,setItem] = useState(0);
+const Home = () => {
+    const [user,setUser] = useState({
+        id:"",
+        password:"",
+    });
+    const chgInputHadelr = e => {
+        const {value,name} = e.target;
+        setUser(old => {
+        return {...old,[name]:value}
+        })
+    }
 
-    const plusBtn = () => {
-        setItem(item + 1);
-    };
-    const miusBtn = () => {
-        setItem(item - 1);
-    };
-
-  return (
+    return (
     <div>
-        <p>{item}</p>
-        <button onClick={plusBtn}>+</button>
-        <button onClick={miusBtn}>-</button>
+        <h1>hello</h1>
+        <useInputState 
+        type="text" 
+        value={user.id}
+        name='id'
+        onChange={chgInputHadelr} 
+        required
+        />
     </div>
   )
 }
