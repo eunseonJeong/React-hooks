@@ -5,7 +5,6 @@ function Header() {
   return (
     <div>
       <p>헤더입니다!!!!!</p>
-      <Outlet />
     </div>
   )
 }
